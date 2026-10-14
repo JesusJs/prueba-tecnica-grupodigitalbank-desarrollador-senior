@@ -72,6 +72,7 @@
     <Compile Include="Business\UsuarioValidator.cs" />
     <Compile Include="Contracts\UsuarioDto.cs" />
     <Compile Include="Data\Interfaces\IUsuarioRepository.cs" />
+    <Compile Include="Data\UsuarioRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

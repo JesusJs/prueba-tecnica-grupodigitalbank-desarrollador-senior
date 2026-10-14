@@ -66,6 +66,10 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Usuarios.Data\Usuarios.Data.csproj">
+      <Project>{74DBA51D-13E6-4142-A39F-C168131D0F0F}</Project>
+      <Name>Usuarios.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Usuarios.Services\Usuarios.Services.csproj">
       <Project>{01a4dd1c-9e03-48b1-9145-888dd3d09eb6}</Project>
       <Name>Usuarios.Services</Name>

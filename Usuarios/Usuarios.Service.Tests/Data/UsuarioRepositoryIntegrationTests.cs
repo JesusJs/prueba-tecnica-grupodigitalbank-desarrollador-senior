@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Usuarios.Services.Business.Mapper;
 using Usuarios.Services.Contracts;
 using Usuarios.Services.Data;
 
@@ -49,7 +50,7 @@ namespace Usuarios.Service.Tests.Data
         [Test]
         public void Agregar_UsuarioValido_RetornaIdMayorACero()
         {
-            _idCreado = _sut.Agregar(NuevoUsuario());
+            _idCreado = _sut.Agregar(NuevoUsuario().ToEntity());
 
             Assert.That(_idCreado, Is.GreaterThan(0));
         }
@@ -58,7 +59,7 @@ namespace Usuarios.Service.Tests.Data
         public void ObtenerPorId_Existente_RetornaLosDatosGuardados()
         {
             var original = NuevoUsuario();
-            _idCreado = _sut.Agregar(original);
+            _idCreado = _sut.Agregar(original.ToEntity());
 
             var leido = _sut.ObtenerPorId(_idCreado);
 
@@ -77,7 +78,7 @@ namespace Usuarios.Service.Tests.Data
         [Test]
         public void ObtenerTodos_IncluyeElUsuarioCreado()
         {
-            _idCreado = _sut.Agregar(NuevoUsuario());
+            _idCreado = _sut.Agregar(NuevoUsuario().ToEntity());
 
             var todos = _sut.ObtenerTodos();
 
@@ -87,12 +88,12 @@ namespace Usuarios.Service.Tests.Data
         [Test]
         public void Modificar_Existente_PersisteLosCambios()
         {
-            _idCreado = _sut.Agregar(NuevoUsuario());
+            _idCreado = _sut.Agregar(NuevoUsuario().ToEntity());
             var cambio = NuevoUsuario();
             cambio.Id = _idCreado;
             cambio.Sexo = "M";
 
-            var resultado = _sut.Modificar(cambio);
+            var resultado = _sut.Modificar(cambio.ToEntity());
 
             Assert.That(resultado, Is.True);
             Assert.That(_sut.ObtenerPorId(_idCreado).Sexo, Is.EqualTo("M"));
@@ -104,13 +105,13 @@ namespace Usuarios.Service.Tests.Data
             var usuario = NuevoUsuario();
             usuario.Id = int.MaxValue;
 
-            Assert.That(_sut.Modificar(usuario), Is.False);
+            Assert.That(_sut.Modificar(usuario.ToEntity()), Is.False);
         }
 
         [Test]
         public void Eliminar_Existente_RetornaTrueYYaNoExiste()
         {
-            var id = _sut.Agregar(NuevoUsuario());
+            var id = _sut.Agregar(NuevoUsuario().ToEntity());
 
             Assert.That(_sut.Eliminar(id), Is.True);
             Assert.That(_sut.ObtenerPorId(id), Is.Null);

@@ -76,6 +76,7 @@
     <Compile Include="Data\Interfaces\IUsuarioRepository.cs" />
     <Compile Include="Data\UsuarioRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\UsuarioService .cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

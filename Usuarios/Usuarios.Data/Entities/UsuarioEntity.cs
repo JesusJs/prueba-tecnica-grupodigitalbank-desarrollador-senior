@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Usuarios.Data.Data.Entities
+namespace Usuarios.Data.Entities
 {
     public class UsuarioEntity
     {

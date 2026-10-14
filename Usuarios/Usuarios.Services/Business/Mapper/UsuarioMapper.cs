@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Usuarios.Data.Data.Entities;
+using Usuarios.Data.Entities;
 using Usuarios.Services.Contracts;
 
 namespace Usuarios.Services.Business.Mapper

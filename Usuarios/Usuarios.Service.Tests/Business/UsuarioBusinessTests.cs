@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Usuarios.Data.Data.Entities;
+using Usuarios.Data.Entities;
 using Usuarios.Services.Business;
 using Usuarios.Services.Business.Mapper;
 using Usuarios.Services.BusinessException;

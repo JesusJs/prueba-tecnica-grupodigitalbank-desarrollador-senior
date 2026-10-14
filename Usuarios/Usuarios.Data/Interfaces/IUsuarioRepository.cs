@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Usuarios.Data.Data.Entities;
+using Usuarios.Data.Entities;
 
 namespace Usuarios.Services.Data.Interfaces
 {

@@ -1,39 +1,94 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewBag.Title - Usuarios</title>
+    <style>
+        body {
+            font-family: Segoe UI, Arial, sans-serif;
+            margin: 0;
+            color: #222;
+        }
+
+        nav {
+            background: #1f3a5f;
+            padding: 12px 24px;
+        }
+
+            nav a {
+                color: #fff;
+                margin-right: 20px;
+                text-decoration: none;
+                font-weight: 600;
+            }
+
+        main {
+            max-width: 800px;
+            margin: 24px auto;
+            padding: 0 16px;
+        }
+
+        label {
+            display: block;
+            margin-top: 14px;
+            font-weight: 600;
+        }
+
+        input[type=text], input[type=date], select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        button, .btn {
+            padding: 8px 16px;
+            border: 0;
+            border-radius: 4px;
+            background: #1f3a5f;
+            color: #fff;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 14px;
+            display: inline-block;
+        }
+
+        .btn-danger {
+            background: #b3261e;
+        }
+
+        .error, .field-validation-error, .validation-summary-errors {
+            color: #b3261e;
+        }
+
+        .ok {
+            color: #1b6e2e;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+        }
+
+        th, td {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        form.inline {
+            display: inline;
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
-        <div class="container">
-            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                </ul>
-            </div>
-        </div>
+    <nav>
+        @Html.ActionLink("Usuario", "Crear", "Usuario")
+        @Html.ActionLink("Usuario consulta", "Consulta", "Usuario")
     </nav>
-    <div class="container body-content">
+    <main>
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    </main>
 </body>
 </html>

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Usuarios.Web.Models.UsuarioViewModel>
+@{
+    ViewBag.Title = "Usuario consulta";
+}
+
+<h2>Usuario consulta</h2>
+
+@if (TempData["Mensaje"] != null)
+{
+    <p class="ok">@TempData["Mensaje"]</p>
+}
+@if (TempData["Error"] != null)
+{
+    <p class="error">@TempData["Error"]</p>
+}
+@Html.ValidationSummary(true)
+
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Fecha de nacimiento</th>
+            <th>Sexo</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var u in Model)
+        {
+            <tr>
+                <td>@u.Nombre</td>
+                <td>@(u.FechaNacimiento.HasValue ? u.FechaNacimiento.Value.ToString("yyyy-MM-dd") : "")</td>
+                <td>@(u.Sexo == "M" ? "Masculino" : "Femenino")</td>
+                <td>
+                    @Html.ActionLink("Modificar", "Editar", "Usuario", new { id = u.Id }, new { @class = "btn" })
+                    @using (Html.BeginForm("Eliminar", "Usuario", new { id = u.Id }, FormMethod.Post, new { @class = "inline", onsubmit = "return confirm('¿Eliminar este usuario?');" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn-danger">Eliminar</button>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (!Model.Any())
+{
+    <p>No hay usuarios registrados.</p>
+}

@@ -1,0 +1,31 @@
+﻿@model Usuarios.Web.Models.UsuarioViewModel
+@{
+    var esEdicion = Model.Id > 0;
+    ViewBag.Title = esEdicion ? "Modificar usuario" : "Usuario";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm(esEdicion ? "Editar" : "Crear", "Usuario", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(m => m.Id)
+
+    <label for="Nombre">Nombre</label>
+    @Html.TextBoxFor(m => m.Nombre, new { maxlength = 100 })
+    @Html.ValidationMessageFor(m => m.Nombre)
+
+    <label for="FechaNacimiento">Fecha de nacimiento</label>
+    @Html.TextBoxFor(m => m.FechaNacimiento, "{0:yyyy-MM-dd}", new { type = "date" })
+    @Html.ValidationMessageFor(m => m.FechaNacimiento)
+
+    <label for="Sexo">Sexo</label>
+    @Html.DropDownListFor(m => m.Sexo, Usuarios.Web.Models.UsuarioViewModel.OpcionesSexo, "-- Seleccione --")
+    @Html.ValidationMessageFor(m => m.Sexo)
+
+    <p style="margin-top:20px">
+        <button type="submit">@(esEdicion ? "Guardar cambios" : "Guardar")</button>
+        @Html.ActionLink("Cancelar", "Consulta", "Usuario", null, new { @class = "btn" })
+    </p>
+}

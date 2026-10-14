@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Business\UsuarioBusinessTests.cs" />
     <Compile Include="Business\UsuarioValidatorTests.cs" />
+    <Compile Include="Controllers\UsuarioControllerTests.cs" />
     <Compile Include="Data\UsuarioRepositoryIntegrationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\UsuarioServiceTests.cs" />

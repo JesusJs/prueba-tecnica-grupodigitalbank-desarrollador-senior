@@ -64,6 +64,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessException\ValidacionException.cs" />
     <Compile Include="Business\IUsuarioValidator.cs" />
     <Compile Include="Business\UsuarioValidator.cs" />
     <Compile Include="Contracts\UsuarioDto.cs" />

@@ -69,7 +69,7 @@ namespace Usuarios.Service.Tests.Business
             var id = _sut.Agregar(usuario);
 
             Assert.That(id, Is.EqualTo(42));
-            _repository.Verify(r => r.Agregar(usuario), Times.Once);
+            _repository.Verify(r => r.Agregar(usuario), Times.Once());
         }
 
         [Test]
@@ -80,7 +80,7 @@ namespace Usuarios.Service.Tests.Business
             var ex = Assert.Throws<ValidacionException>(() => _sut.Agregar(UsuarioValido()));
 
             Assert.That(ex.Errores, Has.Count.EqualTo(1));
-            _repository.Verify(r => r.Agregar(It.IsAny<UsuarioDto>()), Times.Never);
+            _repository.Verify(r => r.Agregar(It.IsAny<UsuarioDto>()), Times.Never());
         }
 
         // ---------- Modificar ----------
@@ -94,7 +94,7 @@ namespace Usuarios.Service.Tests.Business
 
             Assert.DoesNotThrow(() => _sut.Modificar(usuario));
 
-            _repository.Verify(r => r.Modificar(usuario), Times.Once);
+            _repository.Verify(r => r.Modificar(usuario), Times.Once());
         }
 
         [Test]
@@ -104,7 +104,7 @@ namespace Usuarios.Service.Tests.Business
 
             Assert.Throws<ValidacionException>(() => _sut.Modificar(UsuarioValido(id: 7)));
 
-            _repository.Verify(r => r.Modificar(It.IsAny<UsuarioDto>()), Times.Never);
+            _repository.Verify(r => r.Modificar(It.IsAny<UsuarioDto>()), Times.Never());
         }
 
         [TestCase(0)]
@@ -115,7 +115,7 @@ namespace Usuarios.Service.Tests.Business
 
             Assert.Throws<ValidacionException>(() => _sut.Modificar(UsuarioValido(id)));
 
-            _repository.Verify(r => r.Modificar(It.IsAny<UsuarioDto>()), Times.Never);
+            _repository.Verify(r => r.Modificar(It.IsAny<UsuarioDto>()), Times.Never());
         }
 
         [Test]
@@ -176,7 +176,7 @@ namespace Usuarios.Service.Tests.Business
         {
             Assert.Throws<ValidacionException>(() => _sut.ConsultarPorId(id));
 
-            _repository.Verify(r => r.ObtenerPorId(It.IsAny<int>()), Times.Never);
+            _repository.Verify(r => r.ObtenerPorId(It.IsAny<int>()), Times.Never());
         }
 
         // ---------- Eliminar ----------
@@ -188,7 +188,7 @@ namespace Usuarios.Service.Tests.Business
 
             Assert.DoesNotThrow(() => _sut.Eliminar(3));
 
-            _repository.Verify(r => r.Eliminar(3), Times.Once);
+            _repository.Verify(r => r.Eliminar(3), Times.Once());
         }
 
         [Test]
@@ -207,7 +207,7 @@ namespace Usuarios.Service.Tests.Business
         {
             Assert.Throws<ValidacionException>(() => _sut.Eliminar(id));
 
-            _repository.Verify(r => r.Eliminar(It.IsAny<int>()), Times.Never);
+            _repository.Verify(r => r.Eliminar(It.IsAny<int>()), Times.Never());
         }
     }
 }

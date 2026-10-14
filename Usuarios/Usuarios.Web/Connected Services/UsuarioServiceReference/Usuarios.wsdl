@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://Jesusjs.dev/usuarios/v1" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" targetNamespace="http://Jesusjs.dev/usuarios/v1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://Jesusjs.dev/usuarios/v1/Imports">
+      <xsd:import schemaLocation="http://localhost:51455/Usuarios.svc?xsd=xsd0" namespace="http://Jesusjs.dev/usuarios/v1" />
+      <xsd:import schemaLocation="http://localhost:51455/Usuarios.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Usuarios.Services.Contracts" />
+      <xsd:import schemaLocation="http://localhost:51455/Usuarios.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:51455/Usuarios.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IUsuarioService_Agregar_InputMessage">
+    <wsdl:part name="parameters" element="tns:Agregar" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_Agregar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_Agregar_UsuarioFaultFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/Usuarios.Services.Contracts" name="detail" element="q1:UsuarioFault" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_Modificar_InputMessage">
+    <wsdl:part name="parameters" element="tns:Modificar" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_Modificar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_Modificar_UsuarioFaultFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/Usuarios.Services.Contracts" name="detail" element="q2:UsuarioFault" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_Consultar_InputMessage">
+    <wsdl:part name="parameters" element="tns:Consultar" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_Consultar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_Consultar_UsuarioFaultFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/Usuarios.Services.Contracts" name="detail" element="q3:UsuarioFault" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_ConsultarPorId_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarPorId" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_ConsultarPorId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_ConsultarPorId_UsuarioFaultFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/Usuarios.Services.Contracts" name="detail" element="q4:UsuarioFault" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_Eliminar_InputMessage">
+    <wsdl:part name="parameters" element="tns:Eliminar" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_Eliminar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioService_Eliminar_UsuarioFaultFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/Usuarios.Services.Contracts" name="detail" element="q5:UsuarioFault" />
+  </wsdl:message>
+  <wsdl:portType name="IUsuarioService">
+    <wsdl:operation name="Agregar">
+      <wsdl:input wsaw:Action="http://Jesusjs.dev/usuarios/v1/IUsuarioService/Agregar" message="tns:IUsuarioService_Agregar_InputMessage" />
+      <wsdl:output wsaw:Action="http://Jesusjs.dev/usuarios/v1/IUsuarioService/AgregarResponse" message="tns:IUsuarioService_Agregar_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://Jesusjs.dev/usuarios/v1/IUsuarioService/AgregarUsuarioFaultFault" name="UsuarioFaultFault" message="tns:IUsuarioService_Agregar_UsuarioFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Modificar">
+      <wsdl:input wsaw:Action="http://Jesusjs.dev/usuarios/v1/IUsuarioService/Modificar" message="tns:IUsuarioService_Modificar_InputMessage" />
+      <wsdl:output wsaw:Action="http://Jesusjs.dev/usuarios/v1/IUsuarioService/ModificarResponse" message="tns:IUsuarioService_Modificar_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://Jesusjs.dev/usuarios/v1/IUsuarioService/ModificarUsuarioFaultFault" name="UsuarioFaultFault" message="tns:IUsuarioService_Modificar_UsuarioFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Consultar">
+      <wsdl:input wsaw:Action="http://Jesusjs.dev/usuarios/v1/IUsuarioService/Consultar" message="tns:IUsuarioService_Consultar_InputMessage" />
+      <wsdl:output wsaw:Action="http://Jesusjs.dev/usuarios/v1/IUsuarioService/ConsultarResponse" message="tns:IUsuarioService_Consultar_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://Jesusjs.dev/usuarios/v1/IUsuarioService/ConsultarUsuarioFaultFault" name="UsuarioFaultFault" message="tns:IUsuarioService_Consultar_UsuarioFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPorId">
+      <wsdl:input wsaw:Action="http://Jesusjs.dev/usuarios/v1/IUsuarioService/ConsultarPorId" message="tns:IUsuarioService_ConsultarPorId_InputMessage" />
+      <wsdl:output wsaw:Action="http://Jesusjs.dev/usuarios/v1/IUsuarioService/ConsultarPorIdResponse" message="tns:IUsuarioService_ConsultarPorId_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://Jesusjs.dev/usuarios/v1/IUsuarioService/ConsultarPorIdUsuarioFaultFault" name="UsuarioFaultFault" message="tns:IUsuarioService_ConsultarPorId_UsuarioFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Eliminar">
+      <wsdl:input wsaw:Action="http://Jesusjs.dev/usuarios/v1/IUsuarioService/Eliminar" message="tns:IUsuarioService_Eliminar_InputMessage" />
+      <wsdl:output wsaw:Action="http://Jesusjs.dev/usuarios/v1/IUsuarioService/EliminarResponse" message="tns:IUsuarioService_Eliminar_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://Jesusjs.dev/usuarios/v1/IUsuarioService/EliminarUsuarioFaultFault" name="UsuarioFaultFault" message="tns:IUsuarioService_Eliminar_UsuarioFaultFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

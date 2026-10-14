@@ -4,10 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using Usuarios.Services.Contracts;
 using Usuarios.Web.Controllers;
 using Usuarios.Web.Gateways;
 using Usuarios.Web.Models;
+using Usuarios.Web.UsuarioServiceReference;
 
 namespace Usuarios.Service.Tests.Controllers
 {

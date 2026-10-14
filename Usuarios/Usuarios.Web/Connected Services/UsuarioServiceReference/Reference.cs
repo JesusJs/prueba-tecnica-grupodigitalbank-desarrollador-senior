@@ -9,42 +9,214 @@
 //------------------------------------------------------------------------------
 
 namespace Usuarios.Web.UsuarioServiceReference {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UsuarioDto", Namespace="http://schemas.datacontract.org/2004/07/Usuarios.Services.Contracts")]
+    [System.SerializableAttribute()]
+    public partial class UsuarioDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime FechaNacimientoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SexoField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime FechaNacimiento {
+            get {
+                return this.FechaNacimientoField;
+            }
+            set {
+                if ((this.FechaNacimientoField.Equals(value) != true)) {
+                    this.FechaNacimientoField = value;
+                    this.RaisePropertyChanged("FechaNacimiento");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Nombre {
+            get {
+                return this.NombreField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreField, value) != true)) {
+                    this.NombreField = value;
+                    this.RaisePropertyChanged("Nombre");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Sexo {
+            get {
+                return this.SexoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SexoField, value) != true)) {
+                    this.SexoField = value;
+                    this.RaisePropertyChanged("Sexo");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UsuarioFault", Namespace="http://schemas.datacontract.org/2004/07/Usuarios.Services.Contracts")]
+    [System.SerializableAttribute()]
+    public partial class UsuarioFault : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CodigoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string[] ErroresField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MensajeField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Codigo {
+            get {
+                return this.CodigoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodigoField, value) != true)) {
+                    this.CodigoField = value;
+                    this.RaisePropertyChanged("Codigo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string[] Errores {
+            get {
+                return this.ErroresField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ErroresField, value) != true)) {
+                    this.ErroresField = value;
+                    this.RaisePropertyChanged("Errores");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Mensaje {
+            get {
+                return this.MensajeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MensajeField, value) != true)) {
+                    this.MensajeField = value;
+                    this.RaisePropertyChanged("Mensaje");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://Jesusjs.dev/usuarios/v1", ConfigurationName="UsuarioServiceReference.IUsuarioService")]
     public interface IUsuarioService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://Jesusjs.dev/usuarios/v1/IUsuarioService/Agregar", ReplyAction="http://Jesusjs.dev/usuarios/v1/IUsuarioService/AgregarResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Usuarios.Services.Contracts.UsuarioFault), Action="http://Jesusjs.dev/usuarios/v1/IUsuarioService/AgregarUsuarioFaultFault", Name="UsuarioFault", Namespace="http://schemas.datacontract.org/2004/07/Usuarios.Services.Contracts")]
-        int Agregar(Usuarios.Services.Contracts.UsuarioDto usuario);
+        [System.ServiceModel.FaultContractAttribute(typeof(Usuarios.Web.UsuarioServiceReference.UsuarioFault), Action="http://Jesusjs.dev/usuarios/v1/IUsuarioService/AgregarUsuarioFaultFault", Name="UsuarioFault", Namespace="http://schemas.datacontract.org/2004/07/Usuarios.Services.Contracts")]
+        int Agregar(Usuarios.Web.UsuarioServiceReference.UsuarioDto usuario);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://Jesusjs.dev/usuarios/v1/IUsuarioService/Agregar", ReplyAction="http://Jesusjs.dev/usuarios/v1/IUsuarioService/AgregarResponse")]
-        System.Threading.Tasks.Task<int> AgregarAsync(Usuarios.Services.Contracts.UsuarioDto usuario);
+        System.Threading.Tasks.Task<int> AgregarAsync(Usuarios.Web.UsuarioServiceReference.UsuarioDto usuario);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://Jesusjs.dev/usuarios/v1/IUsuarioService/Modificar", ReplyAction="http://Jesusjs.dev/usuarios/v1/IUsuarioService/ModificarResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Usuarios.Services.Contracts.UsuarioFault), Action="http://Jesusjs.dev/usuarios/v1/IUsuarioService/ModificarUsuarioFaultFault", Name="UsuarioFault", Namespace="http://schemas.datacontract.org/2004/07/Usuarios.Services.Contracts")]
-        void Modificar(Usuarios.Services.Contracts.UsuarioDto usuario);
+        [System.ServiceModel.FaultContractAttribute(typeof(Usuarios.Web.UsuarioServiceReference.UsuarioFault), Action="http://Jesusjs.dev/usuarios/v1/IUsuarioService/ModificarUsuarioFaultFault", Name="UsuarioFault", Namespace="http://schemas.datacontract.org/2004/07/Usuarios.Services.Contracts")]
+        void Modificar(Usuarios.Web.UsuarioServiceReference.UsuarioDto usuario);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://Jesusjs.dev/usuarios/v1/IUsuarioService/Modificar", ReplyAction="http://Jesusjs.dev/usuarios/v1/IUsuarioService/ModificarResponse")]
-        System.Threading.Tasks.Task ModificarAsync(Usuarios.Services.Contracts.UsuarioDto usuario);
+        System.Threading.Tasks.Task ModificarAsync(Usuarios.Web.UsuarioServiceReference.UsuarioDto usuario);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://Jesusjs.dev/usuarios/v1/IUsuarioService/Consultar", ReplyAction="http://Jesusjs.dev/usuarios/v1/IUsuarioService/ConsultarResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Usuarios.Services.Contracts.UsuarioFault), Action="http://Jesusjs.dev/usuarios/v1/IUsuarioService/ConsultarUsuarioFaultFault", Name="UsuarioFault", Namespace="http://schemas.datacontract.org/2004/07/Usuarios.Services.Contracts")]
-        Usuarios.Services.Contracts.UsuarioDto[] Consultar();
+        [System.ServiceModel.FaultContractAttribute(typeof(Usuarios.Web.UsuarioServiceReference.UsuarioFault), Action="http://Jesusjs.dev/usuarios/v1/IUsuarioService/ConsultarUsuarioFaultFault", Name="UsuarioFault", Namespace="http://schemas.datacontract.org/2004/07/Usuarios.Services.Contracts")]
+        Usuarios.Web.UsuarioServiceReference.UsuarioDto[] Consultar();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://Jesusjs.dev/usuarios/v1/IUsuarioService/Consultar", ReplyAction="http://Jesusjs.dev/usuarios/v1/IUsuarioService/ConsultarResponse")]
-        System.Threading.Tasks.Task<Usuarios.Services.Contracts.UsuarioDto[]> ConsultarAsync();
+        System.Threading.Tasks.Task<Usuarios.Web.UsuarioServiceReference.UsuarioDto[]> ConsultarAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://Jesusjs.dev/usuarios/v1/IUsuarioService/ConsultarPorId", ReplyAction="http://Jesusjs.dev/usuarios/v1/IUsuarioService/ConsultarPorIdResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Usuarios.Services.Contracts.UsuarioFault), Action="http://Jesusjs.dev/usuarios/v1/IUsuarioService/ConsultarPorIdUsuarioFaultFault", Name="UsuarioFault", Namespace="http://schemas.datacontract.org/2004/07/Usuarios.Services.Contracts")]
-        Usuarios.Services.Contracts.UsuarioDto ConsultarPorId(int id);
+        [System.ServiceModel.FaultContractAttribute(typeof(Usuarios.Web.UsuarioServiceReference.UsuarioFault), Action="http://Jesusjs.dev/usuarios/v1/IUsuarioService/ConsultarPorIdUsuarioFaultFault", Name="UsuarioFault", Namespace="http://schemas.datacontract.org/2004/07/Usuarios.Services.Contracts")]
+        Usuarios.Web.UsuarioServiceReference.UsuarioDto ConsultarPorId(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://Jesusjs.dev/usuarios/v1/IUsuarioService/ConsultarPorId", ReplyAction="http://Jesusjs.dev/usuarios/v1/IUsuarioService/ConsultarPorIdResponse")]
-        System.Threading.Tasks.Task<Usuarios.Services.Contracts.UsuarioDto> ConsultarPorIdAsync(int id);
+        System.Threading.Tasks.Task<Usuarios.Web.UsuarioServiceReference.UsuarioDto> ConsultarPorIdAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://Jesusjs.dev/usuarios/v1/IUsuarioService/Eliminar", ReplyAction="http://Jesusjs.dev/usuarios/v1/IUsuarioService/EliminarResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Usuarios.Services.Contracts.UsuarioFault), Action="http://Jesusjs.dev/usuarios/v1/IUsuarioService/EliminarUsuarioFaultFault", Name="UsuarioFault", Namespace="http://schemas.datacontract.org/2004/07/Usuarios.Services.Contracts")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Usuarios.Web.UsuarioServiceReference.UsuarioFault), Action="http://Jesusjs.dev/usuarios/v1/IUsuarioService/EliminarUsuarioFaultFault", Name="UsuarioFault", Namespace="http://schemas.datacontract.org/2004/07/Usuarios.Services.Contracts")]
         void Eliminar(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://Jesusjs.dev/usuarios/v1/IUsuarioService/Eliminar", ReplyAction="http://Jesusjs.dev/usuarios/v1/IUsuarioService/EliminarResponse")]
@@ -78,35 +250,35 @@ namespace Usuarios.Web.UsuarioServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public int Agregar(Usuarios.Services.Contracts.UsuarioDto usuario) {
+        public int Agregar(Usuarios.Web.UsuarioServiceReference.UsuarioDto usuario) {
             return base.Channel.Agregar(usuario);
         }
         
-        public System.Threading.Tasks.Task<int> AgregarAsync(Usuarios.Services.Contracts.UsuarioDto usuario) {
+        public System.Threading.Tasks.Task<int> AgregarAsync(Usuarios.Web.UsuarioServiceReference.UsuarioDto usuario) {
             return base.Channel.AgregarAsync(usuario);
         }
         
-        public void Modificar(Usuarios.Services.Contracts.UsuarioDto usuario) {
+        public void Modificar(Usuarios.Web.UsuarioServiceReference.UsuarioDto usuario) {
             base.Channel.Modificar(usuario);
         }
         
-        public System.Threading.Tasks.Task ModificarAsync(Usuarios.Services.Contracts.UsuarioDto usuario) {
+        public System.Threading.Tasks.Task ModificarAsync(Usuarios.Web.UsuarioServiceReference.UsuarioDto usuario) {
             return base.Channel.ModificarAsync(usuario);
         }
         
-        public Usuarios.Services.Contracts.UsuarioDto[] Consultar() {
+        public Usuarios.Web.UsuarioServiceReference.UsuarioDto[] Consultar() {
             return base.Channel.Consultar();
         }
         
-        public System.Threading.Tasks.Task<Usuarios.Services.Contracts.UsuarioDto[]> ConsultarAsync() {
+        public System.Threading.Tasks.Task<Usuarios.Web.UsuarioServiceReference.UsuarioDto[]> ConsultarAsync() {
             return base.Channel.ConsultarAsync();
         }
         
-        public Usuarios.Services.Contracts.UsuarioDto ConsultarPorId(int id) {
+        public Usuarios.Web.UsuarioServiceReference.UsuarioDto ConsultarPorId(int id) {
             return base.Channel.ConsultarPorId(id);
         }
         
-        public System.Threading.Tasks.Task<Usuarios.Services.Contracts.UsuarioDto> ConsultarPorIdAsync(int id) {
+        public System.Threading.Tasks.Task<Usuarios.Web.UsuarioServiceReference.UsuarioDto> ConsultarPorIdAsync(int id) {
             return base.Channel.ConsultarPorIdAsync(id);
         }
         

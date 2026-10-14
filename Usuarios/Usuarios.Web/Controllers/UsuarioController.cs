@@ -1,27 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using Usuarios.Services.Contracts;
+using Usuarios.Web.UsuarioServiceReference;
+using Usuarios.Web.Gateways;
 using Usuarios.Web.Models;
 
 namespace Usuarios.Web.Controllers
 {
-    public class UsuarioController
+    public class UsuarioController:Controller
     {
         private readonly IUsuarioGateway _gateway;
 
-        // Lo usa MVC: compone la dependencia real.
         public UsuarioController() : this(new UsuarioGateway()) { }
 
-        // Lo usan los tests.
         public UsuarioController(IUsuarioGateway gateway)
         {
             _gateway = gateway ?? throw new ArgumentNullException(nameof(gateway));
         }
 
-        // ---------- Página "usuario" ----------
+        // Pagina "usuario"
 
         [HttpGet]
         public ActionResult Crear() => View(new UsuarioViewModel());
@@ -46,7 +44,7 @@ namespace Usuarios.Web.Controllers
             }
         }
 
-        // ---------- Página "usuario consulta" ----------
+        // Pagina "usuario consulta"
 
         [HttpGet]
         public ActionResult Consulta()
@@ -63,7 +61,7 @@ namespace Usuarios.Web.Controllers
             }
         }
 
-        // ---------- Modificar ----------
+        // Modificar 
 
         [HttpGet]
         public ActionResult Editar(int id)
@@ -105,7 +103,7 @@ namespace Usuarios.Web.Controllers
             }
         }
 
-        // ---------- Eliminar ----------
+        // Eliminar
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -124,7 +122,7 @@ namespace Usuarios.Web.Controllers
             return RedirectToAction("Consulta");
         }
 
-        // ---------- Helpers ----------
+        // Helpers
 
         private void AgregarErrores(UsuarioGatewayException ex)
         {
@@ -151,5 +149,4 @@ namespace Usuarios.Web.Controllers
             Sexo = dto.Sexo
         };
     }
-}
 }

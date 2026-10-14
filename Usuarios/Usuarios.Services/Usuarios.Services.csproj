@@ -64,10 +64,14 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessException\UsuarioNoEncontradoException.cs" />
     <Compile Include="BusinessException\ValidacionException.cs" />
-    <Compile Include="Business\IUsuarioValidator.cs" />
+    <Compile Include="Business\Interfaces\IUsuarioBusiness.cs" />
+    <Compile Include="Business\Interfaces\IUsuarioValidator.cs" />
+    <Compile Include="Business\UsuarioBusiness.cs" />
     <Compile Include="Business\UsuarioValidator.cs" />
     <Compile Include="Contracts\UsuarioDto.cs" />
+    <Compile Include="Data\Interfaces\IUsuarioRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

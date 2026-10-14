@@ -16,3 +16,37 @@
 # Archivos de usuario y temporales
 *.tmp
 *.log
+
+# ===== Usuarios.Web (ASP.NET MVC .NET Framework) =====
+
+# Salida de compilación
+**/bin/
+**/obj/
+
+# Estado del IDE
+.vs/
+*.user
+*.suo
+
+# NuGet (se restauran solos)
+**/packages/
+!**/packages.config
+
+# Config específica de IIS Express
+.vs/config/applicationhost.config
+
+# Archivos de publicación local
+**/PublishProfiles/*.pubxml.user
+**/Properties/PublishProfiles/*.pubxml.user
+
+# Logs y temporales
+*.log
+*.tmp
+*.cache
+**/App_Data/*.mdf
+**/App_Data/*.ldf
+
+# Config con datos locales (opcional, ver nota)
+# **/Web.Local.config
+
+# Proxy WCF generado: SÍ se versiona (ver nota)

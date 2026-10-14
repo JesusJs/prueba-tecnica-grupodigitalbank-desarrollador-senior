@@ -65,6 +65,6 @@ BEGIN
         RETURN;
     END
 
-    THROW 50000, 'Acción inválida. Use C, R, U o D.', 1;
+    ;THROW 50000, 'Acción inválida. Use C, R, U o D.', 1;
 END
 GO

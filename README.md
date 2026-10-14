@@ -132,4 +132,9 @@ Base de datos: `NOT NULL`, tipos, `CHECK` de sexo, `PRIMARY KEY`
 
 ## Como iniciar el proyecto:
 
-> Atajo: clic derecho en la solución > **Configure Startup Projects** > *Multiple startup projects* > `Usuarios.Services` y `Usuarios.Web` en **Start** > **F5**. La web abre en `/Usuario/Crear`. El servicio puede mostrar un 403 en su raíz, es normal vive en `/Usuarios.svc`.
+Atajo: clic derecho en la solución > **Configure Startup Projects** > *Multiple startup projects* > `Usuarios.Services` y `Usuarios.Web` en **Start** > **F5**. La web abre en `/Usuario/Crear`. El servicio puede mostrar un 403 en su raíz, es normal vive en `/Usuarios.svc`.
+
+
+
+# EMPRESA:
+ENTITY DATA

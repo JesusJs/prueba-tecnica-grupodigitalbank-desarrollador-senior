@@ -70,7 +70,9 @@
     <Compile Include="Business\Interfaces\IUsuarioValidator.cs" />
     <Compile Include="Business\UsuarioBusiness.cs" />
     <Compile Include="Business\UsuarioValidator.cs" />
+    <Compile Include="Contracts\Interfaces\IUsuarioService.cs" />
     <Compile Include="Contracts\UsuarioDto.cs" />
+    <Compile Include="Contracts\UsuarioFault.cs" />
     <Compile Include="Data\Interfaces\IUsuarioRepository.cs" />
     <Compile Include="Data\UsuarioRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -66,12 +66,17 @@ namespace Usuarios.Service.Tests.Business
         {
             ValidadorRetornaValido();
             var usuario = UsuarioValido();
-            _repository.Setup(r => r.Agregar(usuario.ToEntity())).Returns(42);
+            _repository
+                .Setup(r => r.Agregar(It.Is<UsuarioEntity>(e =>
+                    e.Nombre == usuario.Nombre &&
+                    e.Sexo == usuario.Sexo &&
+                    e.FechaNacimiento == usuario.FechaNacimiento)))
+                .Returns(42);
 
             var id = _sut.Agregar(usuario);
 
             Assert.That(id, Is.EqualTo(42));
-            _repository.Verify(r => r.Agregar(usuario.ToEntity()), Times.Once());
+            _repository.Verify(r => r.Agregar(It.IsAny<UsuarioEntity>()), Times.Once());
         }
 
         [Test]
@@ -81,8 +86,8 @@ namespace Usuarios.Service.Tests.Business
 
             var ex = Assert.Throws<ValidacionException>(() => _sut.Agregar(UsuarioValido()));
 
-            Assert.That(ex.Errores, Has.Count.EqualTo(1));
-            _repository.Verify(r => r.Agregar(It.IsAny<UsuarioDto>().ToEntity()), Times.Never());
+            Assert.That(ex.Errores, Has.Exactly(1).Items);
+            _repository.Verify(r => r.Agregar(It.IsAny<UsuarioEntity>()), Times.Never());
         }
 
         // ---------- Modificar ----------
@@ -91,12 +96,11 @@ namespace Usuarios.Service.Tests.Business
         public void Modificar_UsuarioValidoExistente_Modifica()
         {
             ValidadorRetornaValido();
-            var usuario = UsuarioValido(id: 7);
-            _repository.Setup(r => r.Modificar(usuario.ToEntity())).Returns(true);
+            _repository.Setup(r => r.Modificar(It.Is<UsuarioEntity>(e => e.Id == 7))).Returns(true);
 
-            Assert.DoesNotThrow(() => _sut.Modificar(usuario));
+            Assert.DoesNotThrow(() => _sut.Modificar(UsuarioValido(id: 7)));
 
-            _repository.Verify(r => r.Modificar(usuario.ToEntity()), Times.Once());
+            _repository.Verify(r => r.Modificar(It.IsAny<UsuarioEntity>()), Times.Once());
         }
 
         [Test]
@@ -106,7 +110,7 @@ namespace Usuarios.Service.Tests.Business
 
             Assert.Throws<ValidacionException>(() => _sut.Modificar(UsuarioValido(id: 7)));
 
-            _repository.Verify(r => r.Modificar(It.IsAny<UsuarioDto>().ToEntity()), Times.Never());
+            _repository.Verify(r => r.Modificar(It.IsAny<UsuarioEntity>()), Times.Never());
         }
 
         [TestCase(0)]
@@ -117,24 +121,22 @@ namespace Usuarios.Service.Tests.Business
 
             Assert.Throws<ValidacionException>(() => _sut.Modificar(UsuarioValido(id)));
 
-            _repository.Verify(r => r.Modificar(It.IsAny<UsuarioDto>().ToEntity()), Times.Never());
+            _repository.Verify(r => r.Modificar(It.IsAny<UsuarioEntity>()), Times.Never());
         }
 
         [Test]
         public void Modificar_UsuarioNoExiste_LanzaUsuarioNoEncontradoException()
         {
             ValidadorRetornaValido();
-            var usuario = UsuarioValido(id: 99);
-            _repository.Setup(r => r.Modificar(usuario.ToEntity())).Returns(false);
+            _repository.Setup(r => r.Modificar(It.Is<UsuarioEntity>(e => e.Id == 99))).Returns(false);
 
-            var ex = Assert.Throws<UsuarioNoEncontradoException>(() => _sut.Modificar(usuario));
+            var ex = Assert.Throws<UsuarioNoEncontradoException>(() => _sut.Modificar(UsuarioValido(id: 99)));
 
             Assert.That(ex.Id, Is.EqualTo(99));
         }
-
         // ---------- Consultar ----------
 
- 
+
         [Test]
         public void Consultar_RetornaTodosLosUsuarios()
         {
@@ -157,19 +159,20 @@ namespace Usuarios.Service.Tests.Business
         [Test]
         public void ConsultarPorId_Existente_RetornaUsuario()
         {
-            var usuario = UsuarioValido(5);
-            _repository.Setup(r => r.ObtenerPorId(5)).Returns(usuario.ToEntity());
+            _repository.Setup(r => r.ObtenerPorId(5))
+                       .Returns(new UsuarioEntity { Id = 5, Nombre = "Ana", Sexo = "F" });
 
             var resultado = _sut.ConsultarPorId(5);
 
-            Assert.That(resultado, Is.SameAs(usuario));
+            Assert.That(resultado.Id, Is.EqualTo(5));
+            Assert.That(resultado.Nombre, Is.EqualTo("Ana"));
+            Assert.That(resultado.Sexo, Is.EqualTo("F"));
         }
 
         [Test]
         public void ConsultarPorId_NoExiste_LanzaUsuarioNoEncontradoException()
         {
-            var response = new UsuarioDto();
-            _repository.Setup(r => r.ObtenerPorId(5)).Returns(response.ToEntity());
+            _repository.Setup(r => r.ObtenerPorId(5)).Returns((UsuarioEntity)null);
 
             Assert.Throws<UsuarioNoEncontradoException>(() => _sut.ConsultarPorId(5));
         }

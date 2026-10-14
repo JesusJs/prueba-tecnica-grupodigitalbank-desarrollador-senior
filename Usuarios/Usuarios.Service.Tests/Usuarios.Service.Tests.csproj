@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Business\UsuarioBusinessTests.cs" />
     <Compile Include="Business\UsuarioValidatorTests.cs" />
+    <Compile Include="Data\UsuarioRepositoryIntegrationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

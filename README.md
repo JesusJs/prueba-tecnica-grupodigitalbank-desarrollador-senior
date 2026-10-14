@@ -3,6 +3,9 @@
 Sistema por capas en .NET Framework 4.8 - ASP.NET MVC 5:
 presentación, servicio WCF negocio y SQL Server datos.
 
+<img width="692" height="388" alt="4A0D2864-7420-413F-85F5-015DA601E680" src="https://github.com/user-attachments/assets/e354dc2f-ed11-4e38-b044-86e9ed93a83d" />
+
+
 ## Mapa de capas:
 #### Presentacion, proyecto web `Usuarios/Usuarios.Web`
 

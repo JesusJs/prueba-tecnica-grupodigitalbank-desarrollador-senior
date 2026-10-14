@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Usuarios.Services.Business.Interfaces;
+using Usuarios.Services.Business.Mapper;
 using Usuarios.Services.BusinessException;
 using Usuarios.Services.Contracts;
 using Usuarios.Services.Data.Interfaces;
@@ -23,7 +24,7 @@ namespace Usuarios.Services.Business
         public int Agregar(UsuarioDto usuario)
         {
             ValidarUsuario(usuario);
-            return _repository.Agregar(usuario);
+            return _repository.Agregar(usuario.ToEntity());
         }
 
         public void Modificar(UsuarioDto usuario)
@@ -36,7 +37,7 @@ namespace Usuarios.Services.Business
             if (errores.Count > 0)
                 throw new ValidacionException(errores);
 
-            if (!_repository.Modificar(usuario))
+            if (!_repository.Modificar(usuario.ToEntity()))
                 throw new UsuarioNoEncontradoException(usuario.Id);
         }
 
@@ -48,12 +49,14 @@ namespace Usuarios.Services.Business
             if (usuario == null)
                 throw new UsuarioNoEncontradoException(id);
 
-            return usuario;
+            return usuario.ToDto();
         }
 
         public IReadOnlyList<UsuarioDto> Consultar()
         {
-            return _repository.ObtenerTodos();
+            return _repository.ObtenerTodos()
+                      .Select(e => e.ToDto())
+                      .ToList();
         }
 
         public void Eliminar(int id)

@@ -1,8 +1,9 @@
 <Solution>
   <Folder Name="/src/">
-    <Project Path="Usuarios.Services/Usuarios.Services.csproj" />
+    <Project Path="Usuarios.Data/Usuarios.Data.csproj" Id="74dba51d-13e6-4142-a39f-c168131d0f0f" />
+    <Project Path="Usuarios.Services/Usuarios.Services.csproj" Id="01a4dd1c-9e03-48b1-9145-888dd3d09eb6" />
   </Folder>
   <Folder Name="/tests/">
-    <Project Path="Usuarios.Service.Tests/Usuarios.Service.Tests.csproj" />
+    <Project Path="Usuarios.Service.Tests/Usuarios.Service.Tests.csproj" Id="29a61dd4-d32f-4f2e-99cc-e604f9f1e987" />
   </Folder>
 </Solution>

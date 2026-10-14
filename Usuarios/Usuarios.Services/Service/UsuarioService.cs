@@ -10,6 +10,7 @@ using Usuarios.Services.Business.Interfaces;
 using Usuarios.Services.BusinessException;
 using Usuarios.Services.Contracts;
 using Usuarios.Services.Contracts.Interfaces;
+using Usuarios.Services;
 using Usuarios.Services.Data;
 
 namespace Usuarios.Services.Service

@@ -3,9 +3,11 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web.Mvc;
 using Usuarios.Services.Contracts;
+using Usuarios.Web.Controllers;
+using Usuarios.Web.Gateways;
+using Usuarios.Web.Models;
 
 namespace Usuarios.Service.Tests.Controllers
 {
@@ -210,5 +212,4 @@ namespace Usuarios.Service.Tests.Controllers
             Assert.That(_sut.TempData["Error"], Is.Not.Null);
         }
     }
-}
 }
